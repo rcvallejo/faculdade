@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+
+/****** BOOT CSS ****/
+
+img {
+  width: 100%;
+  max-width: 380px;
+}
+
+.center {
+  max-width: 1280px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+
+.w33 {
+  width: 33.33%;
+  padding: 0 10px;
+}
+
+.w50 {
+  padding: 0 2%;
+  width: 50%;
+}
+
+.left {
+  float: left;
+}
+
+.rigth {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/******** FIM ESTRUTURA DE CLASSES PRÉ DEFINIDADES *******/
+
+/*Estilizando o site*/
+
+header {
+  padding: 10px 0;
+  background: #80d411;
+}
+
+header .logo {
+  font-size: 23px;
+}
+
+.mobile {
+  display: none;
+}
+
+nav.desktop ul {
+  position: relative;
+  top: 15px;
+  list-style-type: none;
+}
+
+nav.desktop li {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 30px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+nav.desktop a {
+  transition: 0.5s;
+  color: white;
+  text-decoration: none;
+}
+
+nav.desktop a:hover {
+  color: rgb(14, 56, 241);
+  text-decoration: underline;
+}
+
+/*******FIM NAV******/
+
+/*Banner*/
+
+section.banner-principal {
+  width: 100%;
+  height: 600px;
+  background-image: url("./css/images/bg-form.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(247, 14, 14, 0.4);
+}
+
+section.banner-principal form {
+  width: 94%;
+  max-width: 600px;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+section.banner-principal form h2 {
+  color: rgb(7, 22, 240);
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+section.banner-principal form input[type="email"] {
+  width: 100%;
+  height: 66px;
+  margin-top: 10px;
+  background: white;
+  color: #333;
+  font-size: 22px;
+  padding-left: 10px;
+  text-align: center;
+  border: none;
+}
+
+section.banner-principal form input[type="submit"] {
+  width: 100%;
+  height: 66px;
+  margin-top: 10px;
+  background-color: #b6a182;
+  color: white#333;
+  cursor: pointer;
+  font-size: 22px;
+  border: none;
+}
+
+/**************FIM BANNER PRINCIPAL************/
+
+/*Autores*/
+
+section.descricao-autor {
+  padding: 30px 0;
+}
+
+section.descricao-autor h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
+  color: #444;
+}
+
+section.descricao-autor p {
+  font-size: 16px;
+  color: #444;
+  margin-top: 10px;
+}
+
+/**************FIM AUTORES************/
+
+/*Seção Especialidades*/
+
+section.especialidades {
+  padding: 40px 0;
+  background: #e2e2e2;
+}
+
+section.especialidades h2.title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #999;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.box-especialidade {
+  margin: 40px 0;
+  padding: 0 30px;
+  text-align: center;
+  border: 6px solid white;
+}
+
+.box-especialidade ul {
+  padding-left: 20px;
+}
+
+.box-especialidade li {
+  list-style: none;
+  border-bottom: 1px solid black;
+}
+
+.box-especialidade h3 {
+  color: #ccb180;
+  font-size: 40px;
+}
+
+.box-especialidade h4 {
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.box-especialidade p {
+  color: #444;
+  font-size: 15px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+/**************FIM ESPECIALIDADE************/
+
+/*Seção Extras*/
+
+section.extras {
+  padding: 30px 0;
+  background: #32db07;
+}
+
+.servicos-container,
+.depoimentos-container {
+  padding: 0 50px;
+}
+
+section.extras .title {
+  color: white;
+  font-weight: 300;
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.depoimentos-single {
+  padding: 15px 0;
+  border-bottom: 1px solid c;
+}
+
+p.depoimento-descricao {
+  font-size: 15px;
+  color: white;
+  font-weight: 300;
+}
+
+p.nome-autor {
+  font-size: 15px;
+  color: white;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.servicos ul {
+  margin: 20px 0;
+}
+
+.servicos li {
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: white;
+  font-weight: 300;
+}
+
+/**************FIM SEÇÃO EXTRAS************/
+
+/*Footer*/
+
+footer {
+  background: #db5305;
+  padding: 15px 0;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    float: none !important;
+    display: block;
+    margin: 0 auto;
+  }
+  .w50 {
+    padding: 20px;
+    width: 100%;
+  }
+  .w33 {
+    padding: 20px;
+    width: 100%;
+  }
+  .box-especialidade {
+    padding: 40px 20px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  nav.desktop {
+    display: none;
+  }
+  nav.mobile {
+    display: block;
+  }
+  .botao-menu-mobile {
+    font-size: 37px;
+    cursor: pointer;
+    color: white;
+  }
+  nav.mobile ul {
+    top: 70px;
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: none;
+    text-align: center;
+  }
+  nav.mobile li {
+    font-weight: 300px;
+    width: 100%;
+    display: block;
+    background: rgb(230, 183, 139);
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    padding: 8px 0;
+  }
+  nav.mobile li a {
+    color: #444;
+    text-decoration: none;
+  }
+  section.banner-principal form h2 {
+    color: black;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+  }
+  section.especialidades h2.title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .box-especialidade h4 {
+    padding-bottom: 35px;
+  }
+}
