@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando Valores</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: start;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            margin-left: 20px;
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100px;
+            padding: 8px;
+            margin-top: 5px;
+            background-color: #1877F2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #145dbf;
+        }
+
+        .buttons-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .separator {
+            margin: 10px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ordenando Valores</h1>
+        
+        <label for="valor">Valor</label>
+        <input type="number" id="valor" placeholder="Digite um número" />
+        <button onclick="add()">Adicionar</button>
+
+        <hr class="separator">
+
+        <select id="algoritmo">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="quick">Quick Sort</option>
+        </select>
+
+        <div class="buttons-row">
+            <button onclick="ordenar()">Ordenar</button>
+            <button onclick="misturar()">Misturar</button>
+        </div>
+
+        <hr>
+
+        <ul id="valores"></ul>
+    </div>
+
+    <script src="ordenando.js"></script>
+    <script>
+        const vetor = [];
+
+        const add = () => {
+            const valorInput = document.getElementById("valor");
+            const valor = parseInt(valorInput.value);
+
+            if (!isNaN(valor)) {
+                vetor.push(valor);
+                valorInput.value = ""; 
+                atualizarVetor(); 
+            } else {
+                alert("Por favor, digite um número válido.");
+            }
+        };
+
+        const ordenar = () => {
+            const algoritmo = document.getElementById("algoritmo").value;
+
+            if (algoritmo === "bubble") {
+                bubble_sort(vetor);
+            } else if (algoritmo === "selection") {
+                selection_sort(vetor);
+            } else if (algoritmo === "quick") {
+                quick_sort(vetor);
+            }
+            atualizarVetor();
+        };
+
+        const misturar = () => {
+            shuffle(vetor, vetor.length); 
+            atualizarVetor();   
+        };
+
+        const atualizarVetor = () => {
+            const lista = document.getElementById("valores");
+            lista.innerHTML = ""; 
+            vetor.forEach(valor => {
+                const item = document.createElement("li");
+                item.textContent = valor;
+                lista.appendChild(item);
+            });
+        };
+    </script>
+</body>
+</html>

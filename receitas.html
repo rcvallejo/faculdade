@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Receitas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container-fluid {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .titulo {
+            text-align: left;
+        }
+        .box-receitas {
+            background-color: #ffc107; /* Fundo amarelo apenas no box de receitas */
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .pnlCatalogo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center; /* Centraliza os cards */
+        }
+        .card {
+            width: 250px;
+        }
+    </style>
+</head>
+<body onload="preencheCatalogo()">
+    <div class="container-fluid">
+        <h1 class="titulo">Catálogo de Receitas</h1> <!-- Alinhamento à esquerda com fundo branco -->
+        
+        <!-- Box com fundo amarelo para as receitas -->
+        <div class="box-receitas">
+            <div id="pnlCatalogo" class="pnlCatalogo"></div>
+        </div>
+    </div>
+
+    <script>
+        // Dados das receitas em formato JSON
+        const receitas = [
+            {
+                titulo: "Bolo de Chocolate",
+                imagem: "./imagens/bolo_de_chocolate.png",  // Caminho relativo correto
+                preparo: "Misture todos os ingredientes, leve ao forno pré-aquecido a 180°C por 40 minutos e sirva.",
+                ingredientes: [
+                    "2 xícaras de farinha de trigo",
+                    "1 xícara de açúcar",
+                    "1 xícara de chocolate em pó",
+                    "1 xícara de leite",
+                    "4 ovos",
+                    "1 colher de sopa de fermento"
+                ]
+            },
+            {
+                titulo: "Salada Caesar",
+                imagem: "./imagens/salada_caesar.webp",  // Caminho relativo correto
+                preparo: "Misture a alface com o molho, acrescente o frango grelhado, o parmesão e os croutons antes de servir.",
+                ingredientes: [
+                    "1 pé de alface romana",
+                    "1 xícara de frango grelhado em cubos",
+                    "1/2 xícara de queijo parmesão ralado",
+                    "1/2 xícara de croutons",
+                    "3 colheres de sopa de molho Caesar"
+                ]
+            },
+            {
+                titulo: "Coxinha de Brigadeiro com Morango",
+                imagem: "./imagens/coxinha_de_brigadeiro_com_morango.jpeg",  // Caminho relativo correto
+                preparo: "Faça o brigadeiro, deixe esfriar e molde ao redor do morango. Passe no granulado e sirva.",
+                ingredientes: [
+                    "1 lata de leite condensado",
+                    "2 colheres de sopa de chocolate em pó",
+                    "1 colher de sopa de manteiga",
+                    "Morangos frescos",
+                    "Granulado a gosto"
+                ]
+            }
+        ];
+
+        // Função para criar lista de ingredientes
+        function getListaIngredientes(receita) {
+            return `
+                <ul>${receita.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
+            `;
+        }
+
+        // Função para criar um card de receita
+        function getCard(receita) {
+            return `
+                <div class="card">
+                    <img src="${receita.imagem}" class="card-img-top" alt="${receita.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${receita.titulo}</h5>
+                        <div class="card-text">
+                            ${getListaIngredientes(receita)}
+                            <hr>
+                            <p>${receita.preparo}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Função para preencher o catálogo
+        function preencheCatalogo() {
+            const pnlCatalogo = document.getElementById('pnlCatalogo');
+            pnlCatalogo.innerHTML = receitas.map(receita => getCard(receita)).join('');
+        }
+    </script>
+</body>
+</html>
